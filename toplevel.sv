@@ -151,7 +151,7 @@ module toplevel(
 logic [27:0] count;
 
 always @(posedge CLOCK_50) begin
-	count <= count + 1;
+	count <= count + 28'd1;
 end
 
 assign LEDR[1:0] = SW[1:0];
@@ -214,7 +214,8 @@ starter u0 (
   .hps_io_hps_io_uart0_inst_TX     (HPS_UART_TX)           //                .hps_io_uart0_inst_TX
 );
 
-
+/* connect all output pins to reduce unnecessary warnings */
+`include "driver_stubs.sv"
 
 endmodule
 
